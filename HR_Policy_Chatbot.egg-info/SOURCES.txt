@@ -1,0 +1,10 @@
+README.md
+setup.py
+HR_Policy_Chatbot.egg-info/PKG-INFO
+HR_Policy_Chatbot.egg-info/SOURCES.txt
+HR_Policy_Chatbot.egg-info/dependency_links.txt
+HR_Policy_Chatbot.egg-info/requires.txt
+HR_Policy_Chatbot.egg-info/top_level.txt
+src/__init__.py
+src/helper.py
+src/prompts.py

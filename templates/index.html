@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HR Policy Chatbot</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="/static/style.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <div class="chat-header">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+
+        <div>
+
+            <h2>HR Policy Assistant</h2>
+
+            <p>Always online</p>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="chat-body" class="chat-body"></div>
+
+
+
+    <form id="messageArea" class="chat-footer">
+
+        <input
+        type="text"
+        id="text"
+        placeholder="Ask your HR policy question..."
+        autocomplete="off"
+        required>
+
+        <button>
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button>
+
+    </form>
+
+</div>
+
+
+
+<script>
+
+$(document).ready(function(){
+
+function scrollBottom(){
+
+$("#chat-body").scrollTop($("#chat-body")[0].scrollHeight);
+
+}
+
+$("#messageArea").submit(function(e){
+
+e.preventDefault();
+
+let msg=$("#text").val();
+
+let time=new Date().toLocaleTimeString([],{
+hour:'2-digit',
+minute:'2-digit'
+});
+
+let userHTML=`
+
+<div class="message user">
+
+<div class="bubble">
+
+${msg}
+
+<span>${time}</span>
+
+</div>
+
+</div>
+
+`;
+
+$("#chat-body").append(userHTML);
+
+scrollBottom();
+
+$("#text").val("");
+
+
+
+let typing=`
+
+<div class="message bot typing" id="typing">
+
+<div class="bubble">
+
+<div class="dots">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+$("#chat-body").append(typing);
+
+scrollBottom();
+
+
+
+$.ajax({
+
+url:"/get",
+
+type:"POST",
+
+data:{msg:msg},
+
+success:function(data){
+
+$("#typing").remove();
+
+let botHTML=`
+
+<div class="message bot">
+
+<div class="bubble">
+
+${data.response}
+
+<span>${time}</span>
+
+</div>
+
+</div>
+
+`;
+
+$("#chat-body").append(botHTML);
+
+scrollBottom();
+
+}
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>

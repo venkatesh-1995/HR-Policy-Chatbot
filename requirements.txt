@@ -1,0 +1,18 @@
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langchain-pinecone
+fastapi 
+uvicorn 
+python-multipart
+python-dotenv
+ipykernel
+pypdf
+langchain-huggingface
+openai
+sentence-transformers
+typing_extensions
+datasets
+
+-e .

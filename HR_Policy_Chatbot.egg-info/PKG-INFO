@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: HR-Policy-Chatbot
+Version: 1.0.0
+Summary: HR Policy Chatbot
+Author: venkatesh
+Author-email: ovenkatramana01@gmail.com
+Requires-Python: >=3.9
+Requires-Dist: langchain>=0.1.0
+Requires-Dist: langchain-core>=0.1.0
+Requires-Dist: langchain-community>=0.1.0
+Requires-Dist: langchain-groq>=0.1.0
+Requires-Dist: langchain-pinecone>=0.1.0
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: uvicorn>=0.16.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: ipykernel>=6.0.0
+Requires-Dist: pypdf>=2.0.0
+Requires-Dist: langchain-huggingface>=0.1.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: sentence-transformers>=2.0.0
+Requires-Dist: typing_extensions>=4.0.0
+Requires-Dist: datasets>=2.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
